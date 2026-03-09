@@ -59,7 +59,7 @@ export default function App() {
       return [
         { time: "04:30", title: "Wim Hof & Teheccüd", desc: "Soğuk duş, Tummo Nefesi. Sükut Yemini.", icon: "Moon" },
         { time: "06:00", title: "Mistik Ateşleme", desc: "tDCS (F3/Fp2). Lion's Mane, Akgünlük.", icon: "Zap" },
-        { time: "06:20", title: `Mükaşefe: ${currentBookConfig.book}`, desc: `Eser: ${currentBookConfig.author}. Zihni kapat, satırları kalbine indir.`, icon: "Target" },
+        { time: "06:20", title: \`Mükaşefe: \${currentBookConfig.book}\`, desc: \`Eser: \${currentBookConfig.author}. Zihni kapat, satırları kalbine indir.\`, icon: "Target" },
         { time: "18:00", title: "Vegan İftar (OMAD)", desc: "Acve hurması ve su. Et sıfır.", icon: "Coffee" },
         { time: "20:30", title: "Derin Muhasebe", desc: "Magnezyum & NAC. Gazali usulü nefis muhasebesi.", icon: "Moon" }
       ];
@@ -67,7 +67,7 @@ export default function App() {
     return [
       { time: "04:30", title: "Uyanış, Wim Hof & Teheccüd", desc: "3 Set Tummo Nefesi, Soğuk duş.", icon: "Moon" },
       { time: "05:30", title: "Longevity & İksir", desc: "NMN, Spermidine, Shilajit, Akgünlük.", icon: "Zap" },
-      { time: "06:00", title: `DEEP WORK 1: ${currentBookConfig.book}`, desc: `${currentBookConfig.author}. Taktik: ${currentBookConfig.tactic}`, icon: "Target" },
+      { time: "06:00", title: \`DEEP WORK 1: \${currentBookConfig.book}\`, desc: \`\${currentBookConfig.author}. Taktik: \${currentBookConfig.tactic}\`, icon: "Target" },
       { time: "08:30", title: "Fiziksel Çarpışma", desc: currentPhaseConfig.activity, icon: "Swords" },
       { time: "17:30", title: "Sosyal Simülasyon", desc: "Masada ve iletişimde taktiklerin saha testi.", icon: "Users" },
       { time: "20:30", title: "Yatsı & NAC Temizliği", desc: "Mavi Işık Gözlüğü. NAC, Magnezyum, uyku.", icon: "Moon" }
@@ -79,37 +79,37 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#020408] text-slate-300 font-sans relative overflow-x-hidden selection:bg-cyan-900/50">
-
+      
       {/* Background Ambience */}
       <div className="fixed inset-0 z-0 pointer-events-none opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-      <motion.div
+      <motion.div 
         animate={{ filter: ['blur(120px)', 'blur(160px)', 'blur(120px)'], opacity: [0.1, 0.15, 0.1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-        className={`fixed top-[-20%] right-[-10%] w-[60vw] h-[60vw] z-0 pointer-events-none transition-colors duration-1000 ${themeVars.glow} rounded-full`}
+        className={\`fixed top-[-20%] right-[-10%] w-[60vw] h-[60vw] z-0 pointer-events-none transition-colors duration-1000 \${themeVars.glow} rounded-full\`}
       />
-      <motion.div
+      <motion.div 
         animate={{ filter: ['blur(100px)', 'blur(140px)', 'blur(100px)'], opacity: [0.05, 0.08, 0.05] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className={`fixed bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] z-0 pointer-events-none transition-colors duration-1000 ${themeVars.glow} rounded-full`}
+        className={\`fixed bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] z-0 pointer-events-none transition-colors duration-1000 \${themeVars.glow} rounded-full\`}
       />
 
       {/* Sidebar Overlay */}
       <AnimatePresence>
         {isSidebarOpen && (
           <>
-            <motion.div
+            <motion.div 
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              onClick={() => setIsSidebarOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-md z-[90]"
+              onClick={() => setIsSidebarOpen(false)} 
+              className="fixed inset-0 bg-black/60 backdrop-blur-md z-[90]" 
             />
-            <motion.div
+            <motion.div 
               initial={{ x: '-100%', opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: '-100%', opacity: 0 }}
               transition={{ type: 'spring', bounce: 0, duration: 0.6 }}
-              className={`fixed inset-y-0 left-0 w-full sm:w-[420px] bg-[#05070c]/90 backdrop-blur-3xl border-r border-slate-800 z-[100] flex flex-col shadow-[20px_0_50px_rgba(0,0,0,0.5)]`}
+              className={\`fixed inset-y-0 left-0 w-full sm:w-[420px] bg-[#05070c]/90 backdrop-blur-3xl border-r border-slate-800 z-[100] flex flex-col shadow-[20px_0_50px_rgba(0,0,0,0.5)]\`}
             >
               <div className="flex items-center justify-between p-6 border-b border-slate-800/60 bg-gradient-to-r from-transparent to-slate-900/20">
                 <h2 className="text-sm font-black text-white tracking-[0.2em] flex items-center gap-3">
-                  <BookOpen className={`w-5 h-5 ${themeVars.text}`} /> VERİTABANI
+                  <BookOpen className={\`w-5 h-5 \${themeVars.text}\`} /> VERİTABANI
                 </h2>
                 <button onClick={() => setIsSidebarOpen(false)} className="p-2 bg-slate-800/30 rounded-full hover:bg-slate-700/50 text-white transition-all hover:rotate-90">
                   <X className="w-4 h-4" />
@@ -117,19 +117,19 @@ export default function App() {
               </div>
 
               <div className="flex p-2 bg-[#020408] border-b border-slate-800/60 overflow-x-auto custom-scrollbar gap-1">
-                {[{ id: 'books', icon: BookOpen, label: 'Eserler' }, { id: 'supps', icon: Pill, label: 'Kimya' }, { id: 'devices', icon: Cpu, label: 'Donanım' }, { id: 'activities', icon: Swords, label: 'Aura' }].map(tab => (
-                  <button
+                {[ { id: 'books', icon: BookOpen, label: 'Eserler' }, { id: 'supps', icon: Pill, label: 'Kimya' }, { id: 'devices', icon: Cpu, label: 'Donanım' }, { id: 'activities', icon: Swords, label: 'Aura' } ].map(tab => (
+                  <button 
                     key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={\`flex-1 py-3 px-2 flex items-center justify-center gap-2 text-[10px] font-bold rounded-lg uppercase transition-all whitespace-nowrap \${activeTab === tab.id ?\`bg-slate-800/80 \${themeVars.text} shadow-sm\` : 'text-slate-500 hover:text-slate-300 hover:bg-slate-900/50'}\`}
+                    onClick={() => setActiveTab(tab.id)} 
+                    className={\`flex-1 py-3 px-2 flex items-center justify-center gap-2 text-[10px] font-bold rounded-lg uppercase transition-all whitespace-nowrap \${activeTab === tab.id ? \`bg-slate-800/80 \${themeVars.text} shadow-sm\` : 'text-slate-500 hover:text-slate-300 hover:bg-slate-900/50'}\`}
                   >
-                <tab.icon className="w-3.5 h-3.5" /> {tab.label}
-              </button>
+                    <tab.icon className="w-3.5 h-3.5"/> {tab.label}
+                  </button>
                 ))}
-            </div>
+              </div>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
-              {activeTab === 'books' && SIDEBAR_DB.books.map((phase, idx) => (
+              <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
+                {activeTab === 'books' && SIDEBAR_DB.books.map((phase, idx) => (
                   <motion.div key={idx} initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: idx * 0.05 }} className="bg-[#090b14]/50 p-4 rounded-xl border border-slate-800/50 hover:border-slate-700/80 transition-all group">
                     <h3 className={\`text-[10px] font-black \${themeVars.text} mb-3 uppercase tracking-widest border-b border-slate-800/50 pb-2\`}>{phase.title}</h3>
                     <ul className="space-y-2">
@@ -142,21 +142,24 @@ export default function App() {
                     </ul>
                   </motion.div>
                 ))}
-            {activeTab === 'supps' && SIDEBAR_DB.supplements.map((sup, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-[#090b14]/50 p-4 rounded-xl border border-slate-800/50">
-                <h4 className="font-bold text-white text-xs flex items-center gap-2 mb-2"><Zap className="w-3.5 h-3.5 text-pink-500" /> {sup.name}</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">{sup.note}</p>
-              </motion.div>
-            ))}
-            {activeTab === 'devices' && SIDEBAR_DB.devices.map((dev, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-[#090b14]/50 p-4 rounded-xl border border-slate-800/50">
-                <h4 className="font-bold text-white text-xs flex items-center gap-2 mb-2"><Radio className="w-3.5 h-3.5 text-blue-400" /> {dev.name}</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">{dev.desc}</p>
-              </motion.div>
-            ))}
-            {activeTab === 'activities' && SIDEBAR_DB.activities.map((act, idx) => {
-              const ActIcon = IconMap[act.icon] || Dumbbell;
-              return (
+                
+                {activeTab === 'supps' && SIDEBAR_DB.supplements.map((sup, idx) => (
+                  <motion.div key={idx} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-[#090b14]/50 p-4 rounded-xl border border-slate-800/50">
+                    <h4 className="font-bold text-white text-xs flex items-center gap-2 mb-2"><Zap className="w-3.5 h-3.5 text-pink-500"/> {sup.name}</h4>
+                    <p className="text-xs text-slate-400 leading-relaxed">{sup.note}</p>
+                  </motion.div>
+                ))}
+
+                {activeTab === 'devices' && SIDEBAR_DB.devices.map((dev, idx) => (
+                  <motion.div key={idx} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-[#090b14]/50 p-4 rounded-xl border border-slate-800/50">
+                    <h4 className="font-bold text-white text-xs flex items-center gap-2 mb-2"><Radio className="w-3.5 h-3.5 text-blue-400"/> {dev.name}</h4>
+                    <p className="text-xs text-slate-400 leading-relaxed">{dev.desc}</p>
+                  </motion.div>
+                ))}
+
+                {activeTab === 'activities' && SIDEBAR_DB.activities.map((act, idx) => {
+                  const ActIcon = IconMap[act.icon] || Dumbbell;
+                  return (
                     <motion.div key={idx} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: idx*0.05 }} className="bg-[#0c0f1a] p-5 rounded-2xl border border-slate-800 hover:border-slate-700 transition-colors">
                       <h3 className={\`text-xs font-black \${themeVars.text} mb-4 uppercase tracking-wider flex items-center gap-2\`}><ActIcon className="w-4 h-4" /> {act.phase}</h3>
                       <div className="space-y-4">
@@ -178,67 +181,66 @@ export default function App() {
                         </div>
                       </div>
                     </motion.div>
-        );
+                  );
                 })}
-    </div>
-            </motion.div >
+              </div>
+            </motion.div>
           </>
-        )
-}
-      </AnimatePresence >
+        )}
+      </AnimatePresence>
 
-  {/* Header */ }
-  < header className = "sticky top-0 z-40 bg-[#020408]/70 backdrop-blur-xl border-b border-slate-800/50 px-4 py-4 md:px-8" >
-    <div className="max-w-7xl mx-auto flex items-center justify-between">
-      <div className="flex items-center gap-4">
-        <button onClick={() => setIsSidebarOpen(true)} className="p-2.5 bg-slate-900/50 border border-slate-800 rounded-lg hover:bg-slate-800 hover:border-slate-600 transition-all text-white group">
-          <Menu className={\`w-5 h-5 group-hover:\${themeVars.text} transition-colors\`} />
-        </button>
-        <div>
-          <h1 className="text-lg md:text-xl font-black text-white tracking-[0.2em] uppercase flex items-center gap-2">
-            <Infinity className={\`w-6 h-6 \${themeVars.text}\`} /> SİMÜLASYON 624
-          </h1>
-        </div>
-      </div>
-
-      <div className="hidden md:flex flex-col items-end gap-1 w-[200px]">
-        <div className="flex justify-between w-full text-[9px] font-black tracking-widest uppercase text-slate-400">
-          <span>İlerleme</span>
-          <span className={themeVars.text}>{((currentDay / TOTAL_DAYS) * 100).toFixed(1)}%</span>
-        </div>
-        <div className="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
-          <motion.div
-            className={\`h-full \${themeVars.glow} shadow-[0_0_10px_currentColor]\`}
-          initial={{ width: 0 }}
-          animate={{ width: \`\${(currentDay / TOTAL_DAYS) * 100}%\` }}
-          transition={{ duration: 1, ease: 'easeOut' }}
+      {/* Header */}
+      <header className="sticky top-0 z-40 bg-[#020408]/70 backdrop-blur-xl border-b border-slate-800/50 px-4 py-4 md:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <button onClick={() => setIsSidebarOpen(true)} className="p-2.5 bg-slate-900/50 border border-slate-800 rounded-lg hover:bg-slate-800 hover:border-slate-600 transition-all text-white group">
+              <Menu className={\`w-5 h-5 group-hover:\${themeVars.text} transition-colors\`} />
+            </button>
+            <div>
+              <h1 className="text-lg md:text-xl font-black text-white tracking-[0.2em] uppercase flex items-center gap-2">
+                <Infinity className={\`w-6 h-6 \${themeVars.text}\`} /> SİMÜLASYON 624
+              </h1>
+            </div>
+          </div>
+          
+          <div className="hidden md:flex flex-col items-end gap-1 w-[200px]">
+            <div className="flex justify-between w-full text-[9px] font-black tracking-widest uppercase text-slate-400">
+              <span>İlerleme</span>
+              <span className={themeVars.text}>{((currentDay / TOTAL_DAYS) * 100).toFixed(1)}%</span>
+            </div>
+            <div className="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+              <motion.div 
+                className={\`h-full \${themeVars.glow} shadow-[0_0_10px_currentColor]\`} 
+                initial={{ width: 0 }}
+                animate={{ width: \`\${(currentDay / TOTAL_DAYS) * 100}%\` }}
+                transition={{ duration: 1, ease: 'easeOut' }}
               />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-      </header >
+      </header>
 
-  {/* Main Content */ }
-  < main className = "max-w-7xl mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10" >
-
-    {/* Left Column */ }
-    < div className = "lg:col-span-4 space-y-6" >
-      <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className={\`glass-panel rounded-3xl p-6 relative overflow-hidden transition-colors duration-500 \${themeVars.border}\`}>
-            <div className={\`absolute top-0 left-0 w-full h-1 opacity-50 \${themeVars.glow}\`}></div>
-            <h2 className="text-[10px] font-black text-slate-400 mb-6 flex items-center gap-2 uppercase tracking-widest"><Clock className="w-4 h-4" /> Zaman Motoru</h2>
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
+        
+        {/* Left Column */}
+        <div className="lg:col-span-4 space-y-6">
+          <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className={\`glass-panel rounded-3xl p-6 relative overflow-hidden transition-all duration-700 bg-gradient-to-br from-[#05070c]/90 to-[#0c0f1a]/80 \${themeVars.border} shadow-[0_0_30px_rgba(0,0,0,0.8)]\`}>
+            <div className={\`absolute top-0 left-0 w-full h-1.5 opacity-80 \${themeVars.glow}\`}></div>
+            <div className={\`absolute -right-20 -top-20 w-64 h-64 rounded-full blur-[80px] opacity-10 \${themeVars.glow} pointer-events-none\`}></div>
+            <h2 className="text-[11px] font-black text-slate-300 mb-6 flex items-center gap-2 uppercase tracking-widest"><Clock className="w-4 h-4" /> Zaman Motoru</h2>
             <input 
               type="range" min="1" max={TOTAL_DAYS} value={currentDay} 
               onChange={(e) => setCurrentDay(parseInt(e.target.value))}
-              className={\`w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer mb-6 active:scale-[0.99] transition-transform \${themeVars.text}\`}
+              className={\`w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer mb-8 active:scale-[0.98] transition-all \${themeVars.text} shadow-inner\`}
             />
-            <div className="flex justify-between items-center bg-[#05070c] p-2 rounded-2xl border border-slate-800 shadow-inner">
-              <button onClick={() => setCurrentDay(Math.max(1, currentDay - 1))} className="px-4 py-2 hover:bg-slate-800 rounded-lg text-xs font-bold text-slate-500 hover:text-white transition-colors">-1</button>
-              <motion.div key={currentDay} initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className={\`text-5xl font-black tracking-tighter \${themeVars.text} drop-shadow-[0_0_15px_currentColor]\`}>{currentDay}</motion.div>
-              <button onClick={() => setCurrentDay(Math.min(TOTAL_DAYS, currentDay + 1))} className="px-4 py-2 hover:bg-slate-800 rounded-lg text-xs font-bold text-slate-500 hover:text-white transition-colors">+1</button>
+            <div className="flex justify-between items-center bg-[#020408]/80 p-3 rounded-2xl border border-slate-700/50 shadow-inner backdrop-blur-md relative z-10">
+              <button onClick={() => setCurrentDay(Math.max(1, currentDay - 1))} className="px-5 py-2 hover:bg-slate-800 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-colors">-1 GÜN</button>
+              <motion.div key={currentDay} initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className={\`text-6xl font-black tracking-tighter \${themeVars.text} drop-shadow-[0_0_25px_currentColor]\`}>{currentDay}</motion.div>
+              <button onClick={() => setCurrentDay(Math.min(TOTAL_DAYS, currentDay + 1))} className="px-5 py-2 hover:bg-slate-800 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-colors">+1 GÜN</button>
             </div>
           </motion.div>
 
-          {/* Dinamik Faz Kartı */}
           <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }} className={\`glass-panel rounded-3xl p-6 transition-colors duration-500 \${themeVars.border}\`}>
             <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2"><Target className={\`w-4 h-4 \${themeVars.text}\`}/> Mevcut Katman</h3>
             <div className={\`text-xs font-bold uppercase tracking-wider mb-2 \${themeVars.text}\`}>{currentPhaseConfig.title}</div>
